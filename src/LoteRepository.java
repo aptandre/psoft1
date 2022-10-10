@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class LoteRepository implements LoteInterface {
+public class LoteRepository {
 
     private ArrayList<Lote> lotes;
 
@@ -9,7 +9,6 @@ public class LoteRepository implements LoteInterface {
         this.lotes = new ArrayList<Lote>();
     }
 
-    @Override
     public void createLote(Lote lote) {
         if (lote != null) {
             this.lotes.add(lote);

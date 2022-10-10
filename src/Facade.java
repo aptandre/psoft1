@@ -12,18 +12,15 @@ public class Facade {
     }
 
     public void criarProduto(String nome, String fabricante, double preco) {
-        Produto novoProduto = new Produto(nome, fabricante, preco);
-        this.produtoService.createProduct(novoProduto);
+        this.produtoService.createProduct(nome, fabricante, preco);
     }
 
-    public ArrayList<Produto> listarProdutos() {
-        return this.produtoService.ListarProduto();
+    public ArrayList<String> listarProdutos() {
+        return this.produtoService.listarProduto();
     }
 
     public void criarLote(String nome, String fabricante, double preco, int quantidade, Date dataValidade) {
-        Produto produto = new Produto(nome, fabricante, preco);
-        Lote novoLote = new Lote(produto, quantidade, dataValidade);
-        this.loteService.createLote(novoLote);
+        this.loteService.createLote(nome, fabricante, preco, quantidade, dataValidade);
     }
 
     public ArrayList<String> listarLotes() {

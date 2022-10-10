@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class LoteService implements LoteInterface {
+public class LoteService {
 
     private LoteRepository repository;
 
@@ -9,14 +9,14 @@ public class LoteService implements LoteInterface {
         this.repository = new LoteRepository();
     }
 
-    @Override
-    public void createLote(Lote lote) {
+    public void createLote(String nome, String fabricante, double preco, int quantidade, Date dataValidade) {
+        Produto produtoLote = new Produto(nome, fabricante, preco);
+        Lote lote = new Lote(produtoLote, quantidade, dataValidade);
         if (lote != null) {
             this.repository.createLote(lote);
         }
     }
 
-    @Override
     public ArrayList<String> listarLotes() {
         return this.repository.listarLotes();
     }

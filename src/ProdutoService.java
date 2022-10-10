@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ProdutoService implements ProdutoInterface {
+public class ProdutoService {
 
     private ProdutosRepository repository;
 
@@ -9,17 +9,16 @@ public class ProdutoService implements ProdutoInterface {
     }
 
 
-    @Override
-    public void createProduct(Produto produto) {
-        if (produto != null) {
-            this.repository.createProduto(produto);
+    public void createProduct(String nome, String fabricante, double preco) {
+        Produto novoProduto = new Produto(nome, fabricante, preco);
+        if (novoProduto != null) {
+            this.repository.createProduto(novoProduto);
         } else {
             System.out.println("Produto nulo");
         }
     }
 
-    @Override
-    public ArrayList<Produto> ListarProduto() {
-        return this.repository.getProdutos();
+    public ArrayList<String> listarProduto() {
+        return this.repository.listarProdutos();
     }
 }
